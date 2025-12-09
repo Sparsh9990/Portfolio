@@ -1,18 +1,12 @@
 body {
-  font-family: Arial, sans-serif;
+  font-family: 'Poppins', Arial, sans-serif;
   margin: 0;
   background-color: #f5f5f5;
   color: #222;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
-/* Center content and control width */
-main {
-  max-width: 900px;
-  margin: 0 auto;
-  padding: 20px;
-}
-
-/* Header bar */
 header {
   background-color: #222b3a;
   color: #fff;
@@ -20,15 +14,47 @@ header {
   text-align: center;
 }
 
-/* Section spacing */
-section {
-  margin-bottom: 24px;
+main {
+  max-width: 700px;
+  margin: 20px auto;
+  padding: 10px;
 }
 
-h1, h2 {
+footer {
+  text-align: center;
+  font-size: 12px;
+  color: #555;
+  margin: 40px 0 20px;
+}
+
+section {
+  background-color: #ffffff;
+  padding: 16px;
+  margin-bottom: 20px;
+  border-radius: 8px;
+}
+
+h1 {
+  font-size: 32px;
+  margin: 0;
+}
+
+h2 {
+  font-size: 24px;
   margin-top: 0;
 }
 
-a {
-  color: #0066cc;
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #ffffff;
+  text-decoration: none;
+  margin: 0 10px;
+  font-size: 14px;
+}
+
+nav a:hover {
+  text-decoration: underline;
 }
