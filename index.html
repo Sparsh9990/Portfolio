@@ -9,8 +9,12 @@
 </head>
 <body>
   <header id="top">
+  <div class="header-left">
     <h1>Sparsh Sharma</h1>
     <p>Python & Web Development Learner</p>
+  </div>
+
+  <div class="header-right">
     <nav>
       <a href="#about">About</a>
       <a href="#skills">Skills</a>
@@ -18,7 +22,9 @@
       <a href="#contact">Contact</a>
     </nav>
     <button id="theme-toggle">Toggle theme</button>
-  </header>
+  </div>
+</header>
+
 
   <main>
     <section id="about">
@@ -28,12 +34,12 @@
 
     <section id="skills">
       <h2>Skills</h2>
-      <ul>
-        <li>Python (games, file-based apps)</li>
-        <li>Git & GitHub (version control, branching)</li>
-        <li>HTML & CSS basics</li>
-      </ul>
-    </section>
+      <ul class="skills-list">
+    <li class="skill-badge">Python (games, file-based apps)</li>
+    <li class="skill-badge">Git & GitHub (version control, branching)</li>
+    <li class="skill-badge">HTML & CSS basics</li>
+  </ul>
+</section>
 
     <section id="projects">
       <h2>Projects</h2>
@@ -45,17 +51,30 @@
     </section>
 
     <section id="contact">
-      <h2>Contact</h2>
-      <p>
-        Email: <a href="mailto:Sparshsharma9990@gmail.com">Sparshsharma9990@gmail.com</a><br>
-        GitHub: <a href="https://github.com/Sparsh9990" target="_blank">Sparsh9990</a>
-      </p>
-    </section>
+  <h2>Contact</h2>
+  <form id="contact-form" class="contact-form" >
+    <p id="form-error" style="color: #c62828; font-size: 13px; display: none;">
+    Please fill in all fields before sending.
+  </p>
+    <label for="name">Name</label>
+    <input id="name" type="text" placeholder="Your name">
+
+    <label for="email">Email</label>
+    <input id="email" type="email" placeholder="you@example.com">
+
+    <label for="message">Message</label>
+    <textarea id="message" rows="4" placeholder="Say hi or ask about a project..."></textarea>
+
+    <button type="submit">Send message</button>
+  </form>
+</section>
+
   </main>
 
   <footer>
-    <p>© 2025 Sparsh Sharma · <a href="#top" id="back-to-top">Back to top</a></p>
-  </footer>
+  <p>© <span id="year"></span> Sparsh Sharma · <a href="#top" id="back-to-top">Back to top</a></p>
+</footer>
+
 
   <script>
     const backToTopLink = document.getElementById('back-to-top');
@@ -73,5 +92,56 @@
       document.body.classList.toggle('dark-mode');
     });
   </script>
+
+  <script>
+  const yearSpan = document.getElementById('year');
+  yearSpan.textContent = new Date().getFullYear();
+</script>
+
+<script>
+  const navLinks = document.querySelectorAll('nav a');
+
+  navLinks.forEach(function (link) {
+    link.addEventListener('click', function () {
+      navLinks.forEach(function (otherLink) {
+        otherLink.classList.remove('active');
+      });
+      link.classList.add('active');
+    });
+  });
+</script>
+
+<script>
+  const contactForm = document.getElementById('contact-form');
+  const nameInput = document.getElementById('name');
+  const emailInput = document.getElementById('email');
+  const messageInput = document.getElementById('message');
+  const formError = document.getElementById('form-error');
+
+  contactForm.addEventListener('submit', function (event) {
+    event.preventDefault();
+
+    if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
+      formError.style.display = 'block';
+      return;
+    }
+
+    formError.style.display = 'none';
+    alert('Thanks for your message! I\'ll get in touch soon :)');
+    contactForm.reset();
+  });
+</script>
+
+<script>
+  const projectNames = [
+    'Number Guessing Game',
+    'Notes App',
+    'Expense Tracker'
+  ];
+
+  projectNames.forEach(function (project) {
+    console.log('Project:', project);
+  });
+</script>
 </body>
 </html>
