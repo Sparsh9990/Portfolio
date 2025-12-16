@@ -1,76 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sparsh Sharma | Portfolio</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap">
-  <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Sparsh | Portfolio</title>
+  <link rel="stylesheet" href="style.css" />
 </head>
-<body>
-  <header id="top">
-  <div class="header-left">
-    <h1>Sparsh Sharma</h1>
-    <p>Python & Web Development Learner</p>
+
+<body class="theme-light">
+  <!-- INTRO with your image -->
+  <section id="intro" class="intro">
+    <!-- Intro audio toggle -->
+    <button
+      id="intro-audio-toggle"
+      class="intro-audio-toggle"
+      aria-label="Toggle intro sound"
+      title="Toggle intro sound"
+      aria-pressed="false"
+    >
+      <span class="audio-icon">
+        <span class="audio-wave wave-left"></span>
+        <span class="audio-wave wave-right"></span>
+      </span>
+    </button>
+
+    <div class="intro-box">
+      <img src="iron-intro.jpg" alt="Iron Man style intro" class="helmet-image" />
+
+      <p id="status" class="status">SYSTEM READY</p>
+      <p class="sub-status">awaiting primary command.</p>
+
+      <button id="explore" class="btn">JARVIS, open base</button>
+
+      <!-- Intro audio clips -->
+      <audio id="audio-welcome">
+        <source src="welcome message.mp3" type="audio/mpeg" />
+      </audio>
+
+      <audio id="audio-init">
+        <source src="initiating systems.mp3" type="audio/mpeg" />
+      </audio>
+    </div>
+  </section>
+
+  <!-- MAIN PORTFOLIO -->
+  <div id="site" class="site">
+    <header class="header">
+      <div class="logo">SPARSH</div>
+
+      <nav class="nav">
+        <a href="#home">Home</a>
+        <a href="#projects">Projects</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+      </nav>
+
+      <!-- Theme toggle: same eye/wave look as intro mute button -->
+      <button
+        id="toggle"
+        class="toggle"
+        title="Toggle theme"
+        aria-label="Toggle theme"
+        aria-pressed="false"
+      >
+        <span class="audio-icon">
+          <span class="audio-wave wave-left"></span>
+          <span class="audio-wave wave-right"></span>
+        </span>
+      </button>
+    </header>
+
+    <main id="home" class="main">
+      <section class="hero">
+        <div>
+          <div class="label">IDENTITY</div>
+          <h1>Sparsh Sharma</h1>
+          <p class="role">Business Analyst & Developer</p>
+          <p class="desc">
+            Jarvis-inspired interface. Clean layout, real projects, and a simple dark / light theme toggle.
+          </p>
+          <div class="actions">
+            <a href="#projects" class="btn btn-accent">Projects</a>
+            <a href="#contact" class="btn btn-ghost">Contact</a>
+          </div>
+        </div>
+
+        <div>
+          <div class="label">STATUS</div>
+          <div class="box">
+            <div class="row">
+              <span class="k">MODE</span>
+              <span class="v">ONLINE</span>
+            </div>
+            <div class="row">
+              <span class="k">STACK</span>
+              <span class="v">HTML · CSS · JS · Python</span>
+            </div>
+            <div class="row">
+              <span class="k">GOAL</span>
+              <span class="v">Entry-level dev / BA roles</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="projects">
+        <div class="label">PROJECTS</div>
+        <div class="list">
+          <article>
+            <div class="tag">WEB</div>
+            <div>
+              <h2>Jarvis Portfolio</h2>
+              <p>Intro image, theme toggle, structured sections.</p>
+            </div>
+          </article>
+          <article>
+            <div class="tag">PY</div>
+            <div>
+              <h2>Number Guessing Game</h2>
+              <p>Loops, validation, functions; terminal-based game.</p>
+            </div>
+          </article>
+          <article>
+            <div class="tag">WEB</div>
+            <div>
+              <h2>Notes App</h2>
+              <p>LocalStorage CRUD, simple UI, responsive layout.</p>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="about">
+        <div class="label">ABOUT</div>
+        <p>
+          Developer with a business-analysis mindset. Focused on clear structure, readable UIs, and shipping small but complete projects.
+        </p>
+      </section>
+
+      <section id="contact">
+        <div class="label">CONTACT</div>
+        <a href="mailto:you@example.com" class="btn btn-accent">Email me</a>
+      </section>
+    </main>
+
+    <footer>© 2025 Sparsh</footer>
   </div>
 
-  <div class="header-right">
-    <nav>
-      <a href="#about">About</a>
-      <a href="#skills">Skills</a>
-      <a href="#projects">Projects</a>
-      <a href="#contact">Contact</a>
-    </nav>
-    <button id="theme-toggle">Toggle theme</button>
-  </div>
-</header>
-
-
-  <main>
-    <section id="about">
-      <h2>About Me</h2>
-      <p>I am learning Python, Git, and web development through project-based practice to become a full-stack developer.</p>
-    </section>
-
-    <section id="skills">
-      <h2>Skills</h2>
-      <ul class="skills-list">
-    <li class="skill-badge">Python (games, file-based apps)</li>
-    <li class="skill-badge">Git & GitHub (version control, branching)</li>
-    <li class="skill-badge">HTML & CSS basics</li>
-  </ul>
-</section>
-
-    <section id="projects">
-      <h2>Projects</h2>
-      <ul id="projects-list"></ul>
-</section>
-
-    <section id="contact">
-  <h2>Contact</h2>
-  <form id="contact-form" class="contact-form" >
-    <p id="form-error" style="color: #c62828; font-size: 13px; display: none;">
-    Please fill in all fields before sending.
-  </p>
-    <label for="name">Name</label>
-    <input id="name" type="text" placeholder="Your name">
-
-    <label for="email">Email</label>
-    <input id="email" type="email" placeholder="you@example.com">
-
-    <label for="message">Message</label>
-    <textarea id="message" rows="4" placeholder="Say hi or ask about a project..."></textarea>
-
-    <button type="submit">Send message</button>
-  </form>
-</section>
-
-  </main>
-
-  <footer>
-  <p>© <span id="year"></span> Sparsh Sharma · <a href="#top" id="back-to-top">Back to top</a></p>
-</footer>
-
-<script src="script.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

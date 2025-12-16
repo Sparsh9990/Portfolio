@@ -1,80 +1,112 @@
+const intro = document.getElementById("intro");
+const explore = document.getElementById("explore");
+const statusEl = document.getElementById("status");
+const site = document.getElementById("site");
+const audioWelcome = document.getElementById("audio-welcome");
+const audioInit = document.getElementById("audio-init");
+const audioToggleBtn = document.getElementById("intro-audio-toggle");
+const toggle = document.getElementById("toggle");
 
-    const backToTopLink = document.getElementById('back-to-top');
+let introAudioMuted = true;      // logical mute flag
+let welcomePlayed = false;       // whether welcome has ever been started
 
-    backToTopLink.addEventListener('click', function (event) {
-      event.preventDefault();
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-    });
-  
-
-  
-    const themeToggleBtn = document.getElementById('theme-toggle');
-
-    themeToggleBtn.addEventListener('click', function () {
-      document.body.classList.toggle('dark-mode');
-    });
-  
-
-  
-  const yearSpan = document.getElementById('year');
-  yearSpan.textContent = new Date().getFullYear();
-
-
-
-  const navLinks = document.querySelectorAll('nav a');
-
-  navLinks.forEach(function (link) {
-    link.addEventListener('click', function () {
-      navLinks.forEach(function (otherLink) {
-        otherLink.classList.remove('active');
-      });
-      link.classList.add('active');
-    });
-  });
-
-
-
-  const contactForm = document.getElementById('contact-form');
-  const nameInput = document.getElementById('name');
-  const emailInput = document.getElementById('email');
-  const messageInput = document.getElementById('message');
-  const formError = document.getElementById('form-error');
-
-  contactForm.addEventListener('submit', function (event) {
-    event.preventDefault();
-
-    if (!nameInput.value.trim() || !emailInput.value.trim() || !messageInput.value.trim()) {
-      formError.style.display = 'block';
-      return;
-    }
-
-    formError.style.display = 'none';
-    alert('Thanks for your message! I\'ll get in touch soon :)');
-    contactForm.reset();
-  });
-
-
-
-  const projectNames = [
-    'Number Guessing Game',
-    'Notes App',
-    'Expense Tracker'
-  ];
-
-  projectNames.forEach(function (project) {
-    console.log('Project:', project);
-  });
-
-  const projectsList = document.getElementById('projects-list');
-
-function renderProjects() {
-  projectsList.innerHTML = '';
-
-  for (let i = 0; i < projectNames.length; i++) {
-    const li = document.createElement('li');
-    li.textContent = projectNames[i];
-    projectsList.appendChild(li);
-  }
+/* Theme handling */
+function setTheme(theme) {
+  document.body.classList.remove("theme-light", "theme-dark");
+  document.body.classList.add(theme);
+  localStorage.setItem("theme", theme);
 }
 
-renderProjects();
+toggle.addEventListener("click", () => {
+  const isDark = document.body.classList.contains("theme-dark");
+  setTheme(isDark ? "theme-light" : "theme-dark");
+});
+
+/* Keep audio elements in sync with logical mute */
+function applyMuteState() {
+  if (audioWelcome) audioWelcome.muted = introAudioMuted;
+  if (audioInit) audioInit.muted = introAudioMuted;
+}
+
+/* Init mute button UI */
+audioToggleBtn.classList.add("muted");
+audioToggleBtn.setAttribute("aria-pressed", "false");
+
+/* When welcome finishes, go back to muted UI */
+if (audioWelcome) {
+  audioWelcome.addEventListener("ended", () => {
+    introAudioMuted = true;
+    audioToggleBtn.classList.add("muted");
+    audioToggleBtn.setAttribute("aria-pressed", "false");
+    applyMuteState();
+  });
+}
+
+/* Mute button = play / pause welcome */
+audioToggleBtn.addEventListener("click", () => {
+  if (!audioWelcome) return;
+
+  // If audio is currently playing → pause + mute it.
+  if (!audioWelcome.paused && !audioWelcome.ended) {           // [web:730]
+    audioWelcome.pause();
+    introAudioMuted = true;
+    audioToggleBtn.classList.add("muted");
+    audioToggleBtn.setAttribute("aria-pressed", "false");
+    applyMuteState();
+    return;
+  }
+
+  // Otherwise: start (or restart) welcome at full volume.
+  introAudioMuted = false;
+  audioToggleBtn.classList.remove("muted");
+  audioToggleBtn.setAttribute("aria-pressed", "true");
+
+  welcomePlayed = true;
+  audioWelcome.currentTime = 0;
+  applyMuteState();                                            // make sure not muted [web:286][web:713]
+  audioWelcome.play().catch(() => {});
+});
+
+/* OPEN BASE click:
+   - stop welcome
+   - force mute ON
+   - play init once, unmuted
+*/
+explore.addEventListener("click", () => {
+  statusEl.textContent = "INITIALIZING SYSTEMS…";
+
+  // Stop welcome immediately
+  if (audioWelcome) {
+    audioWelcome.pause();
+    audioWelcome.currentTime = 0;
+  }
+
+  // Force mute ON and update UI
+  introAudioMuted = true;
+  audioToggleBtn.classList.add("muted");
+  audioToggleBtn.setAttribute("aria-pressed", "false");
+  applyMuteState();
+
+  // Play init once on this click (allowed by autoplay rules) [web:280][web:286][web:496]
+  if (audioInit) {
+    audioInit.muted = false;
+    audioInit.currentTime = 0;
+    audioInit.play().catch(() => {});
+  }
+
+  // Fade intro away
+  setTimeout(() => {
+    intro.style.opacity = "0";
+    intro.style.pointerEvents = "none";
+  }, 900);
+
+  setTimeout(() => {
+    intro.style.display = "none";
+    site.classList.add("visible");
+  }, 1700);
+});
+
+/* Initial theme from storage and initial mute state */
+const saved = localStorage.getItem("theme");
+setTheme(saved === "theme-dark" ? "theme-dark" : "theme-light");
+applyMuteState();
