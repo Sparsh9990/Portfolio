@@ -157,3 +157,69 @@ logo.addEventListener("click", () => {
 const saved = localStorage.getItem("theme");
 setTheme(saved === "theme-dark" ? "theme-dark" : "theme-light");
 applyMuteState();
+
+/* PROJECT MODAL */
+const projectModal = document.querySelector(".project-modal");
+const projectModalBackdrop = document.querySelector(".project-modal-backdrop");
+const projectModalTitle = document.querySelector(".project-modal-title");
+const projectModalSummary = document.querySelector(".project-modal-summary");
+const projectModalTech = document.querySelector(".project-modal-tech");
+const projectModalRole = document.querySelector(".project-modal-role");
+const projectModalLink = document.querySelector("#project-modal-link");
+const projectModalClose = document.querySelector(".project-modal-close");
+
+function openProjectModal(card) {
+  if (!projectModal) return;
+
+  projectModalTitle.textContent = card.dataset.title || "";
+  projectModalSummary.textContent = card.dataset.summary || "";
+  projectModalTech.textContent = card.dataset.tech || "";
+  projectModalRole.textContent = card.dataset.role || "";
+  projectModalLink.href = card.dataset.link || "#";
+
+  projectModal.hidden = false;
+  projectModalBackdrop.hidden = false;
+  document.body.style.overflow = "hidden";
+}
+
+function closeProjectModal() {
+  if (!projectModal) return;
+  projectModal.hidden = true;
+  projectModalBackdrop.hidden = true;
+  document.body.style.overflow = "";
+}
+
+document.querySelectorAll(".project-card").forEach((card) => {
+  card.addEventListener("click", () => openProjectModal(card));
+});
+
+if (projectModalClose) {
+  projectModalClose.addEventListener("click", closeProjectModal);
+}
+if (projectModalBackdrop) {
+  projectModalBackdrop.addEventListener("click", closeProjectModal);
+}
+
+document.addEventListener("keydown", (e) => {
+  if (e.key === "Escape" && projectModal && !projectModal.hidden) {
+    closeProjectModal();
+  }
+});
+
+/* HERO "Run diagnostics" button -> scroll to CORE VITALS */
+const scrollDiagnosticsBtn = document.getElementById("scroll-diagnostics");
+if (scrollDiagnosticsBtn) {
+  scrollDiagnosticsBtn.addEventListener("click", () => {
+    const diag = document.getElementById("skill-diagnostics");
+    if (!diag) return;
+    diag.scrollIntoView({ behavior: "smooth", block: "start" });
+  });
+}
+
+/* CONTACT "Send intro" button */
+const contactEmailCta = document.getElementById("contact-email-cta");
+if (contactEmailCta) {
+  contactEmailCta.addEventListener("click", () => {
+    window.location.href = "mailto:Sparshsharma9990@gmail.com";
+  });
+}
