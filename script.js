@@ -8,10 +8,19 @@ const audioToggleBtn = document.getElementById("intro-audio-toggle");
 const toggle = document.getElementById("toggle");
 const suspendBtn = document.getElementById("suspend");
 const logo = document.getElementById("logo");
-const hero = document.querySelector(".hero");
+const logoSub = document.getElementById("logo-sub");
 
 let introAudioMuted = true;
 let welcomePlayed = false;
+
+/* messages for logo subline */
+const logoMessages = [
+  "SYSTEMS ONLINE",
+  "VER 2025.1",
+  "DIAGNOSTICS CLEAN",
+  "NO BUGS DETECTED"
+];
+let logoMsgIndex = 0;
 
 /* Theme handling */
 function setTheme(theme) {
@@ -118,7 +127,7 @@ suspendBtn.addEventListener("click", () => {
   applyMuteState();
 });
 
-/* LOGO pulse + status blip + scroll to hero */
+/* LOGO press + status blip + scroll to top + cycle subtext */
 logo.addEventListener("click", () => {
   logo.classList.remove("pulse");
   void logo.offsetWidth;
@@ -132,14 +141,17 @@ logo.addEventListener("click", () => {
     }, 800);
   }
 
-  // scroll truly to top (above hero)
+  if (logoSub) {
+    logoMsgIndex = (logoMsgIndex + 1) % logoMessages.length;
+    logoSub.textContent = logoMessages[logoMsgIndex];
+  }
+
   window.scrollTo({
     top: 0,
     left: 0,
     behavior: "smooth"
   });
 });
-
 
 /* Initial theme from storage and initial mute state */
 const saved = localStorage.getItem("theme");
