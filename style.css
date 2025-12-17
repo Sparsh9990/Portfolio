@@ -218,26 +218,62 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
+/* LOGO as console chip + pulse */
+
 .logo {
-  font-size: 14px;
-  font-weight: 700;
-  letter-spacing: 0.16em;
+  font-size: 11px;
+  font-weight: 600;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  cursor: pointer;
+  position: relative;
+  color: var(--accent);
+  padding: 4px 10px 4px 12px;
+  border-radius: 999px;
+  border: 1px solid rgba(56, 189, 248, 0.7);
+  background: radial-gradient(circle at 0 0, rgba(56,189,248,0.12), transparent 60%);
 }
 
-.nav {
+.logo::after {
+  content: "";
+  position: absolute;
+  inset: 50%;
+  transform: translate(-50%, -50%);
+  width: 0;
+  height: 0;
+  border-radius: 999px;
+  background: radial-gradient(circle, rgba(56,189,248,0.55), transparent 70%);
+  opacity: 0;
+  pointer-events: none;
+}
+
+.logo.pulse::after {
+  animation: logo-pulse 0.6s ease-out;
+}
+
+@keyframes logo-pulse {
+  0% {
+    width: 0;
+    height: 0;
+    opacity: 0.7;
+  }
+  100% {
+    width: 80px;
+    height: 80px;
+    opacity: 0;
+  }
+}
+
+.header-actions {
   display: flex;
-  gap: 16px;
+  align-items: center;
+  gap: 10px;
 }
 
-.nav a {
-  text-decoration: none;
-  color: var(--text);
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-.nav a:hover {
-  opacity: 1;
+.header-suspend {
+  padding: 6px 14px;
+  font-size: 12px;
+  letter-spacing: 0.12em;
 }
 
 /* Theme toggle */
@@ -282,7 +318,7 @@ section {
   border-radius: 12px;
 }
 
-/* HERO */
+/* HERO – original spacing */
 
 .hero {
   display: grid;
@@ -329,7 +365,6 @@ h1 {
   background: var(--accent);
   color: #020617;
   text-decoration: none;
-
 }
 
 .btn-ghost {
@@ -337,8 +372,9 @@ h1 {
   border: 1px solid var(--border);
   color: var(--text);
   text-decoration: none;
-
 }
+
+/* Status / stats */
 
 .box {
   display: grid;
@@ -365,8 +401,6 @@ h1 {
   font-weight: 700;
   text-align: right;
 }
-
-/* Status panel subtle glow */
 
 .status-panel {
   background: radial-gradient(circle at 0 0, rgba(56,189,248,0.12), transparent 60%);

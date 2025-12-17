@@ -44,28 +44,34 @@
   <!-- MAIN PORTFOLIO -->
   <div id="site" class="site">
     <header class="header">
-      <div class="logo">SPARSH</div>
+      <div class="logo" id="logo" aria-label="Sparsh systems console">
+        SPARSH
+      </div>
 
-      <nav class="nav">
-        <a href="#home">Home</a>
-        <a href="#data-projects">Analytics</a>
-        <a href="#ai-projects">AI / ML</a>
-        <a href="#systems">Systems</a>
-        <a href="#about">Profile</a>
-      </nav>
+      <div class="header-actions">
+        <button
+          id="suspend"
+          class="btn btn-ghost header-suspend"
+          type="button"
+          title="Suspend systems"
+          aria-label="Suspend systems and return to intro"
+        >
+          Suspend systems
+        </button>
 
-      <button
-        id="toggle"
-        class="toggle"
-        title="Toggle theme"
-        aria-label="Toggle theme"
-        aria-pressed="false"
-      >
-        <span class="audio-icon">
-          <span class="audio-wave wave-left"></span>
-          <span class="audio-wave wave-right"></span>
-        </span>
-      </button>
+        <button
+          id="toggle"
+          class="toggle"
+          title="Toggle theme"
+          aria-label="Toggle theme"
+          aria-pressed="false"
+        >
+          <span class="audio-icon">
+            <span class="audio-wave wave-left"></span>
+            <span class="audio-wave wave-right"></span>
+          </span>
+        </button>
+      </div>
     </header>
 
     <main id="home" class="main">
@@ -77,7 +83,7 @@
           <p class="role">Business Systems Analyst · Data & AI</p>
           <p class="desc">
 Passionate Business Analyst and Software Developer blending technical depth with clear business thinking. Inspired by Jarvis from Iron Man, focused on shipping practical AI systems that solve real problems.
-
+          </p>
           <div class="actions">
             <a href="#data-projects" class="btn btn-accent">View work</a>
             <a href="#about" class="btn btn-ghost">Profile core</a>
@@ -107,6 +113,28 @@ Passionate Business Analyst and Software Developer blending technical depth with
         </div>
       </section>
 
+      <!-- PROFILE CORE -->
+      <section id="about" class="panel">
+        <div class="panel-header">
+          <div class="label">PROFILE CORE</div>
+          <span class="panel-meta">BUSINESS SYSTEMS ANALYST</span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+Business Systems Analyst at Bhrigu Sons Pharmaceuticals, focused on turning messy, real-world requirements and processes into reliable systems, dashboards, and database solutions that actually ship.
+            </p>
+            <p>
+Day to day, works with stakeholders across business, finance, and operations to clarify needs, map current workflows, and design solutions that remove friction rather than add complexity. Owns the path from requirement to rollout: writing clear specs, validating data, coordinating with developers, and testing changes so production systems behave as expected.
+            </p>
+          </div>
+          <div class="about-meta">
+            <!-- intentionally empty for now -->
+          </div>
+        </div>
+      </section>
+
       <!-- ANALYTICS SYSTEMS -->
       <section id="data-projects" class="panel">
         <div class="panel-header">
@@ -115,7 +143,6 @@ Passionate Business Analyst and Software Developer blending technical depth with
         </div>
 
         <div class="projects-grid">
-          <!-- Local Pizza Shop -->
           <article class="project-card">
             <div class="project-header">
               <span class="pill pill-data">SQL · BI</span>
@@ -135,7 +162,6 @@ Passionate Business Analyst and Software Developer blending technical depth with
             </div>
           </article>
 
-          <!-- NASDAQ Risk & Return -->
           <article class="project-card">
             <div class="project-header">
               <span class="pill pill-data">FIN · PY</span>
@@ -165,7 +191,6 @@ Passionate Business Analyst and Software Developer blending technical depth with
         </div>
 
         <div class="projects-grid">
-          <!-- Twitter Sentiment -->
           <article class="project-card">
             <div class="project-header">
               <span class="pill pill-ml">NLP</span>
@@ -185,7 +210,6 @@ Passionate Business Analyst and Software Developer blending technical depth with
             </div>
           </article>
 
-          <!-- Netflix Recommender -->
           <article class="project-card">
             <div class="project-header">
               <span class="pill pill-ml">REC-SYS</span>
@@ -205,7 +229,6 @@ Passionate Business Analyst and Software Developer blending technical depth with
             </div>
           </article>
 
-          <!-- California Housing -->
           <article class="project-card">
             <div class="project-header">
               <span class="pill pill-ml">REG</span>
@@ -235,7 +258,6 @@ Passionate Business Analyst and Software Developer blending technical depth with
         </div>
 
         <div class="projects-grid">
-          <!-- Requirements Engineering -->
           <article class="project-card">
             <div class="project-header">
               <span class="pill pill-prod">BA · PM</span>
@@ -255,7 +277,6 @@ Passionate Business Analyst and Software Developer blending technical depth with
             </div>
           </article>
 
-          <!-- UI Design & Agile -->
           <article class="project-card">
             <div class="project-header">
               <span class="pill pill-prod">UI · AGILE</span>
@@ -373,28 +394,6 @@ Passionate Business Analyst and Software Developer blending technical depth with
             <div class="diag-bar">
               <div class="diag-fill diag-fill-comm"></div>
             </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- PROFILE CORE -->
-      <section id="about" class="panel">
-        <div class="panel-header">
-          <div class="label">PROFILE CORE</div>
-          <span class="panel-meta">BUSINESS SYSTEMS ANALYST</span>
-        </div>
-
-        <div class="about-grid">
-          <div class="about-text">
-            <p>
-Business Systems Analyst at Bhrigu Sons Pharmaceuticals, focused on turning messy, real-world requirements and processes into reliable systems, dashboards, and database solutions that actually ship.
-            </p>
-            <p>
-Day to day, works with stakeholders across business, finance, and operations to clarify needs, map current workflows, and design solutions that remove friction rather than add complexity. Owns the path from requirement to rollout: writing clear specs, validating data, coordinating with developers, and testing changes so production systems behave as expected.
-            </p>
-          </div>
-          <div class="about-meta">
-            <!-- intentionally empty for now -->
           </div>
         </div>
       </section>

@@ -6,6 +6,9 @@ const audioWelcome = document.getElementById("audio-welcome");
 const audioInit = document.getElementById("audio-init");
 const audioToggleBtn = document.getElementById("intro-audio-toggle");
 const toggle = document.getElementById("toggle");
+const suspendBtn = document.getElementById("suspend");
+const logo = document.getElementById("logo");
+const hero = document.querySelector(".hero");
 
 let introAudioMuted = true;
 let welcomePlayed = false;
@@ -96,6 +99,47 @@ explore.addEventListener("click", () => {
     window.scrollTo({ top: 0, left: 0, behavior: "instant" });
   }, 1700);
 });
+
+/* SUSPEND SYSTEMS click */
+suspendBtn.addEventListener("click", () => {
+  intro.style.display = "grid";
+  intro.style.opacity = "1";
+  intro.style.pointerEvents = "auto";
+
+  site.classList.remove("visible");
+
+  statusEl.textContent = "SYSTEM READY";
+
+  window.scrollTo({ top: 0, left: 0, behavior: "instant" });
+
+  introAudioMuted = true;
+  audioToggleBtn.classList.add("muted");
+  audioToggleBtn.setAttribute("aria-pressed", "false");
+  applyMuteState();
+});
+
+/* LOGO pulse + status blip + scroll to hero */
+logo.addEventListener("click", () => {
+  logo.classList.remove("pulse");
+  void logo.offsetWidth;
+  logo.classList.add("pulse");
+
+  if (statusEl) {
+    const previous = statusEl.textContent;
+    statusEl.textContent = "SYSTEM NOMINAL";
+    setTimeout(() => {
+      statusEl.textContent = previous || "SYSTEM READY";
+    }, 800);
+  }
+
+  // scroll truly to top (above hero)
+  window.scrollTo({
+    top: 0,
+    left: 0,
+    behavior: "smooth"
+  });
+});
+
 
 /* Initial theme from storage and initial mute state */
 const saved = localStorage.getItem("theme");
