@@ -315,19 +315,21 @@ h1 {
   font-size: 15px;
   color: var(--muted);
   max-width: 50ch;
+  margin-bottom: 98px; 
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 14px;
+  margin-top: 28px;
 }
 
 .btn-accent {
   background: var(--accent);
   color: #020617;
   text-decoration: none;
+
 }
 
 .btn-ghost {
@@ -335,6 +337,7 @@ h1 {
   border: 1px solid var(--border);
   color: var(--text);
   text-decoration: none;
+
 }
 
 .box {
@@ -345,7 +348,7 @@ h1 {
 .row {
   display: flex;
   justify-content: space-between;
-  padding: 8px;
+  padding: 6px 8px;
   border: 1px solid var(--border);
   border-radius: 8px;
 }
@@ -367,6 +370,10 @@ h1 {
 
 .status-panel {
   background: radial-gradient(circle at 0 0, rgba(56,189,248,0.12), transparent 60%);
+  padding: 10px 10px 12px;
+  border-radius: 10px;
+  display: grid;
+  gap: 8px;
 }
 
 /* PANELS */
@@ -588,10 +595,11 @@ h2 {
   box-shadow: 0 0 12px rgba(56, 189, 248, 0.8);
 }
 
-.diag-fill-data { width: 85%; }
-.diag-fill-ml { width: 80%; }
-.diag-fill-prod { width: 75%; }
-.diag-fill-comm { width: 82%; }
+/* updated widths to align with new higher percentages */
+.diag-fill-data { width: 88%; }
+.diag-fill-ml { width: 86%; }
+.diag-fill-prod { width: 84%; }
+.diag-fill-comm { width: 87%; }
 
 /* PROFILE CORE */
 
@@ -612,17 +620,6 @@ h2 {
 .about-meta {
   display: grid;
   gap: 8px;
-}
-
-.meta-row {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 10px;
-  padding: 6px 9px;
-  border-radius: 8px;
-  border: 1px solid rgba(148, 163, 184, 0.55);
-  background: color-mix(in srgb, var(--bg) 92%, transparent);
 }
 
 /* Footer */
