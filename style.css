@@ -308,21 +308,21 @@ h1 {
 .role {
   font-size: 14px;
   color: var(--muted);
-  margin-bottom: 10px;
+  margin-bottom: 30px;
 }
 
 .desc {
   font-size: 15px;
   color: var(--muted);
   max-width: 50ch;
-  margin-bottom: 98px; 
+  margin-bottom: 38px; 
 }
 
 .actions {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
-  margin-top: 28px;
+  margin-top: 58px;
 }
 
 .btn-accent {
