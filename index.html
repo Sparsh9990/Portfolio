@@ -8,9 +8,8 @@
 </head>
 
 <body class="theme-light">
-  <!-- INTRO with your image -->
+  <!-- INTRO -->
   <section id="intro" class="intro">
-    <!-- Intro audio toggle -->
     <button
       id="intro-audio-toggle"
       class="intro-audio-toggle"
@@ -32,7 +31,6 @@
 
       <button id="explore" class="btn">JARVIS, open base</button>
 
-      <!-- Intro audio clips -->
       <audio id="audio-welcome">
         <source src="welcome message.mp3" type="audio/mpeg" />
       </audio>
@@ -50,12 +48,12 @@
 
       <nav class="nav">
         <a href="#home">Home</a>
-        <a href="#projects">Projects</a>
-        <a href="#about">About</a>
-        <a href="#contact">Contact</a>
+        <a href="#data-projects">Analytics</a>
+        <a href="#ai-projects">AI / ML</a>
+        <a href="#systems">Systems</a>
+        <a href="#about">Profile</a>
       </nav>
 
-      <!-- Theme toggle: same eye/wave look as intro mute button -->
       <button
         id="toggle"
         class="toggle"
@@ -71,76 +69,344 @@
     </header>
 
     <main id="home" class="main">
+      <!-- HERO -->
       <section class="hero">
         <div>
           <div class="label">IDENTITY</div>
           <h1>Sparsh Sharma</h1>
-          <p class="role">Business Analyst & Developer</p>
+          <p class="role">Business Systems Analyst · Data & AI</p>
           <p class="desc">
-            Jarvis-inspired interface. Clean layout, real projects, and a simple dark / light theme toggle.
-          </p>
+Business Systems & Data Analyst focused on insight-driven, AI-informed solutions that actually move business metrics.          </p>
           <div class="actions">
-            <a href="#projects" class="btn btn-accent">Projects</a>
-            <a href="#contact" class="btn btn-ghost">Contact</a>
+            <a href="#data-projects" class="btn btn-accent">View work</a>
+            <a href="#about" class="btn btn-ghost">Profile core</a>
           </div>
         </div>
 
         <div>
-          <div class="label">STATUS</div>
-          <div class="box">
+          <div class="label">VITAL STATS</div>
+          <div class="box status-panel">
             <div class="row">
-              <span class="k">MODE</span>
-              <span class="v">ONLINE</span>
+              <span class="k">LOCATION</span>
+              <span class="v">Toronto · ON · Canada</span>
             </div>
             <div class="row">
-              <span class="k">STACK</span>
-              <span class="v">HTML · CSS · JS · Python</span>
+              <span class="k">FOCUS AREAS</span>
+              <span class="v">Business / Data Analytics · AI / ML · App / Web Development</span>
             </div>
             <div class="row">
-              <span class="k">GOAL</span>
-              <span class="v">Entry-level dev / BA roles</span>
+              <span class="k">OPEN TO <br> ROLES</span>
+              <span class="v">Business / Data Analyst · SWE I </span>
             </div>
           </div>
         </div>
       </section>
 
-      <section id="projects">
-        <div class="label">PROJECTS</div>
-        <div class="list">
-          <article>
-            <div class="tag">WEB</div>
-            <div>
-              <h2>Jarvis Portfolio</h2>
-              <p>Intro image, theme toggle, structured sections.</p>
+      <!-- ANALYTICS SYSTEMS -->
+      <section id="data-projects" class="panel">
+        <div class="panel-header">
+          <div class="label">ANALYTICS SYSTEMS</div>
+          <span class="panel-meta"> BI Dashboards ·  Reporting · Financial Analysis</span>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Local Pizza Shop -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="pill pill-data">SQL · BI</span>
+              <span class="project-id">DATA · 01</span>
+            </div>
+            <h2>Local Pizza Retail Sales Analysis</h2>
+            <p class="project-desc">
+              Read three years of store sales and turned them into simple dashboards for a single-location owner.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item">
+                <strong>Impact</strong> Peak months surfaced · campaigns tuned · marketing lift ~15%.
+              </span>
+              <span class="project-meta-item">
+                <strong>Stack</strong> SQL · MS SQL Server · Excel · Power BI
+              </span>
             </div>
           </article>
-          <article>
-            <div class="tag">PY</div>
-            <div>
-              <h2>Number Guessing Game</h2>
-              <p>Loops, validation, functions; terminal-based game.</p>
+
+          <!-- NASDAQ Risk & Return -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="pill pill-data">FIN · PY</span>
+              <span class="project-id">DATA · 02</span>
             </div>
-          </article>
-          <article>
-            <div class="tag">WEB</div>
-            <div>
-              <h2>Notes App</h2>
-              <p>LocalStorage CRUD, simple UI, responsive layout.</p>
+            <h2>NASDAQ Risk & Return Analysis</h2>
+            <p class="project-desc">
+              Measured risk–return for 10 tech stocks and tested CAPM on real market behaviour.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item">
+                <strong>Impact</strong> CAPM fit ~68.5% · clearer diversification and risk signals.
+              </span>
+              <span class="project-meta-item">
+                <strong>Stack</strong> Python · CAPM · OLS Regression · Correlation Matrix · Heatmaps
+              </span>
             </div>
           </article>
         </div>
       </section>
 
-      <section id="about">
-        <div class="label">ABOUT</div>
-        <p>
-          Developer with a business-analysis mindset. Focused on clear structure, readable UIs, and shipping small but complete projects.
-        </p>
+      <!-- AI / ML SYSTEMS -->
+      <section id="ai-projects" class="panel">
+        <div class="panel-header">
+          <div class="label">AI / ML SYSTEMS</div>
+          <span class="panel-meta">Predictions · Classifications · Recommendations</span>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Twitter Sentiment -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="pill pill-ml">NLP</span>
+              <span class="project-id">AI · 01</span>
+            </div>
+            <h2>Twitter Sentiment Analysis</h2>
+            <p class="project-desc">
+              Cleaned and modeled a 1.6M tweet dataset to track sentiment for brands and topics.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item">
+                <strong>Impact</strong> Noise ↓ ~40% · sentiment model accuracy ~77%.
+              </span>
+              <span class="project-meta-item">
+                <strong>Stack</strong> Python · Regex · Pandas · NLTK · TF-IDF · Logistic Regression
+              </span>
+            </div>
+          </article>
+
+          <!-- Netflix Recommender -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="pill pill-ml">REC-SYS</span>
+              <span class="project-id">AI · 02</span>
+            </div>
+            <h2>Netflix Recommendation System</h2>
+            <p class="project-desc">
+              Used cosine similarity on viewing patterns to push better content suggestions to users.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item">
+                <strong>Impact</strong> Match quality ↑ ~35% · content discovery ↑ ~45% for 100+ users.
+              </span>
+              <span class="project-meta-item">
+                <strong>Stack</strong> Python · Pandas · TF-IDF · Cosine Similarity
+              </span>
+            </div>
+          </article>
+
+          <!-- California Housing -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="pill pill-ml">REG</span>
+              <span class="project-id">AI · 03</span>
+            </div>
+            <h2>California House Price Prediction</h2>
+            <p class="project-desc">
+              Trained an XGBoost regressor on 20k+ records to estimate housing prices on key features.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item">
+                <strong>Impact</strong> Test accuracy ~83% · training accuracy ~94%.
+              </span>
+              <span class="project-meta-item">
+                <strong>Stack</strong> Python · Pandas · Seaborn · Matplotlib · XGBoost
+              </span>
+            </div>
+          </article>
+        </div>
       </section>
 
-      <section id="contact">
-        <div class="label">CONTACT</div>
-        <a href="mailto:you@example.com" class="btn btn-accent">Email me</a>
+      <!-- BUSINESS PROCESS & DESIGN LAB -->
+      <section id="product-projects" class="panel">
+        <div class="panel-header">
+          <div class="label">BUSINESS PROCESS & DESIGN LAB</div>
+          <span class="panel-meta">Requirements · Workflows · Prototyping · Delivery</span>
+        </div>
+
+        <div class="projects-grid">
+          <!-- Requirements Engineering -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="pill pill-prod">BA · PM</span>
+              <span class="project-id">PRODUCT · 01</span>
+            </div>
+            <h2>Requirements & Backlog Systems</h2>
+            <p class="project-desc">
+              Turned a 3D metaverse office concept into clear user stories, priorities, and sprint plans.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item">
+                <strong>Impact</strong> 20+ stories structured · sprint delivery time ↓ ~15%.
+              </span>
+              <span class="project-meta-item">
+                <strong>Stack</strong> Workshops · Requirements · Backlog · Retrospectives
+              </span>
+            </div>
+          </article>
+
+          <!-- UI Design & Agile -->
+          <article class="project-card">
+            <div class="project-header">
+              <span class="pill pill-prod">UI · AGILE</span>
+              <span class="project-id">PRODUCT · 02</span>
+            </div>
+            <h2>Interface Design & Agile Delivery</h2>
+            <p class="project-desc">
+              Built SFU-branded flows and coordinated Scrum teams to ship in short, reliable cycles.
+            </p>
+            <div class="project-meta">
+              <span class="project-meta-item">
+                <strong>Impact</strong> UX satisfaction ↑ ~25% · deployment time ↓ ~20%.
+              </span>
+              <span class="project-meta-item">
+                <strong>Stack</strong> Figma · Balsamiq · Agile · Scrum
+              </span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <!-- SYSTEM MODULES -->
+      <section id="systems" class="panel systems-panel">
+        <div class="panel-header">
+          <div class="label">SYSTEM MODULES</div>
+          <span class="panel-meta">Data · AI · Dev stack</span>
+        </div>
+
+        <div class="systems-grid">
+          <div class="systems-column">
+            <h3 class="systems-title">LANGUAGES</h3>
+            <div class="chip-row">
+              <span class="chip">Python</span>
+              <span class="chip">Java</span>
+              <span class="chip">C++</span>
+              <span class="chip">C</span>
+              <span class="chip">SQL</span>
+              <span class="chip">HTML</span>
+              <span class="chip">CSS</span>
+              <span class="chip">JavaScript</span>
+            </div>
+          </div>
+
+          <div class="systems-column">
+            <h3 class="systems-title">PLATFORMS</h3>
+            <div class="chip-row">
+              <span class="chip">Power BI</span>
+              <span class="chip">GoogleColab</span>
+              <span class="chip">Jupyter</span>
+              <span class="chip">MS SQL Server</span>
+              <span class="chip">MySQL</span>
+              <span class="chip">Git / GitHub / GitLab</span>
+              <span class="chip">JIRA</span>
+              <span class="chip">VS Code</span>
+              <span class="chip">Microsoft 365</span>
+            </div>
+          </div>
+
+          <div class="systems-column">
+            <h3 class="systems-title">Domains & Methods</h3>
+            <div class="chip-row">
+              <span class="chip">Business Analysis</span>
+              <span class="chip">Data Analysis</span>
+              <span class="chip">Requirements</span>
+              <span class="chip">Agile · Scrum · Kanban</span>
+              <span class="chip">Project Management</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SYSTEM VITALS -->
+      <section id="skill-diagnostics" class="panel diagnostics-panel">
+        <div class="panel-header">
+          <div class="label">CORE VITALS</div>
+          <span class="panel-meta">SYSTEM proficiency levels</span>
+        </div>
+
+        <div class="diagnostics-grid">
+          <div class="diag-row">
+            <div class="diag-label">
+              <span class="diag-name">Business systems & data</span>
+              <span class="diag-value">85%</span>
+            </div>
+            <div class="diag-bar">
+              <div class="diag-fill diag-fill-data"></div>
+            </div>
+          </div>
+
+          <div class="diag-row">
+            <div class="diag-label">
+              <span class="diag-name">AI / ML projects</span>
+              <span class="diag-value">80%</span>
+            </div>
+            <div class="diag-bar">
+              <div class="diag-fill diag-fill-ml"></div>
+            </div>
+          </div>
+
+          <div class="diag-row">
+            <div class="diag-label">
+              <span class="diag-name">Product & delivery</span>
+              <span class="diag-value">75%</span>
+            </div>
+            <div class="diag-bar">
+              <div class="diag-fill diag-fill-prod"></div>
+            </div>
+          </div>
+
+          <div class="diag-row">
+            <div class="diag-label">
+              <span class="diag-name">Stakeholders & comms</span>
+              <span class="diag-value">82%</span>
+            </div>
+            <div class="diag-bar">
+              <div class="diag-fill diag-fill-comm"></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROFILE CORE -->
+      <section id="about" class="panel">
+        <div class="panel-header">
+          <div class="label">PROFILE CORE</div>
+          <span class="panel-meta">BUSINESS SYSTEMS ANALYST</span>
+        </div>
+
+        <div class="about-grid">
+          <div class="about-text">
+            <p>
+Business Systems Analyst at Bhrigu Sons Pharmaceuticals, leveraging a Computing Science degree (AI major, Business minor) from Simon Fraser University in Vancouver, Canada. Focused on turning messy, real-world requirements and processes into reliable systems, dashboards, and database solutions that actually ship.            </p>
+            <p>
+Day to day, works with stakeholders across business, finance, and operations to clarify needs, map current workflows, and design solutions that remove friction rather than add complexity. Owns the path from requirement to rollout: writing clear specs, validating data, coordinating with developers, and testing changes so production systems behave as expected.            </p>
+          </div>
+          <div class="about-meta">
+            <div class="meta-row">
+              <span class="k">CURRENT ROLE</span>
+              <span class="v">Business Systems Analyst · Bhrigu Sons Pharmaceuticals</span>
+            </div>
+            <div class="meta-row">
+              <span class="k">CORE WORK</span>
+              <span class="v">
+                Requirements & process analysis · system & DB design · advanced data analysis · QA & reliability
+              </span>
+            </div>
+            <div class="meta-row">
+              <span class="k">EDUCATION</span>
+              <span class="v">BSc Computing Science (AI Major; Business Minor) · Simon Fraser University</span>
+            </div>
+            <div class="meta-row">
+              <span class="k">CERTS</span>
+              <span class="v">PMI AI for Business · Atlassian Agile PM · Microsoft BA / DA / SD / GenAI</span>
+            </div>
+          </div>
+        </div>
       </section>
     </main>
 

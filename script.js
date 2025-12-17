@@ -7,8 +7,8 @@ const audioInit = document.getElementById("audio-init");
 const audioToggleBtn = document.getElementById("intro-audio-toggle");
 const toggle = document.getElementById("toggle");
 
-let introAudioMuted = true;      // logical mute flag
-let welcomePlayed = false;       // whether welcome has ever been started
+let introAudioMuted = true;
+let welcomePlayed = false;
 
 /* Theme handling */
 function setTheme(theme) {
@@ -46,8 +46,7 @@ if (audioWelcome) {
 audioToggleBtn.addEventListener("click", () => {
   if (!audioWelcome) return;
 
-  // If audio is currently playing → pause + mute it.
-  if (!audioWelcome.paused && !audioWelcome.ended) {           // [web:730]
+  if (!audioWelcome.paused && !audioWelcome.ended) {
     audioWelcome.pause();
     introAudioMuted = true;
     audioToggleBtn.classList.add("muted");
@@ -56,45 +55,36 @@ audioToggleBtn.addEventListener("click", () => {
     return;
   }
 
-  // Otherwise: start (or restart) welcome at full volume.
   introAudioMuted = false;
   audioToggleBtn.classList.remove("muted");
   audioToggleBtn.setAttribute("aria-pressed", "true");
 
   welcomePlayed = true;
   audioWelcome.currentTime = 0;
-  applyMuteState();                                            // make sure not muted [web:286][web:713]
+  applyMuteState();
   audioWelcome.play().catch(() => {});
 });
 
-/* OPEN BASE click:
-   - stop welcome
-   - force mute ON
-   - play init once, unmuted
-*/
+/* OPEN BASE click */
 explore.addEventListener("click", () => {
   statusEl.textContent = "INITIALIZING SYSTEMS…";
 
-  // Stop welcome immediately
   if (audioWelcome) {
     audioWelcome.pause();
     audioWelcome.currentTime = 0;
   }
 
-  // Force mute ON and update UI
   introAudioMuted = true;
   audioToggleBtn.classList.add("muted");
   audioToggleBtn.setAttribute("aria-pressed", "false");
   applyMuteState();
 
-  // Play init once on this click (allowed by autoplay rules) [web:280][web:286][web:496]
   if (audioInit) {
     audioInit.muted = false;
     audioInit.currentTime = 0;
     audioInit.play().catch(() => {});
   }
 
-  // Fade intro away
   setTimeout(() => {
     intro.style.opacity = "0";
     intro.style.pointerEvents = "none";
