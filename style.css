@@ -1,16 +1,18 @@
 * { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
+/* LIGHT THEME (default) */
 :root {
-  --bg: #f9fafb;
-  --text: #0f172a;
-  --muted: #64748b;
-  --border: rgba(15, 23, 42, 0.12);
+  --bg: #f3f4f6;
+  --text: #020617;
+  --muted: #6b7280;
+  --border: rgba(15, 23, 42, 0.08);
   --accent: #0ea5e9;
-  --blue: #38bdf8;
+  --blue: #0284c7;
   --red: #ef4444;
 }
 
+/* DARK THEME TOKENS */
 body.theme-dark {
   --bg: #020617;
   --text: #e5e7eb;
@@ -1104,7 +1106,6 @@ h2 {
   color: var(--accent);
 }
 
-
 .contact-cta-row {
   margin-top: 4px;
 }
@@ -1129,6 +1130,76 @@ footer {
   text-align: center;
   color: var(--muted);
   border-top: 1px solid var(--border);
+}
+
+/* LIGHT MODE TUNING
+   -------------------------------------------------- */
+
+/* Sticky header in light mode */
+body.theme-light .header {
+  background: rgba(248, 250, 252, 0.96);
+  box-shadow: 0 1px 0 rgba(148, 163, 184, 0.35);
+  backdrop-filter: blur(10px);
+}
+
+/* Hero in light mode */
+body.theme-light .hero {
+  background: radial-gradient(circle at 0 0, rgba(56,189,248,0.10), #f9fafb);
+  border-color: rgba(148, 163, 184, 0.25);
+}
+
+/* Panels in light mode */
+body.theme-light .panel {
+  background:
+    radial-gradient(circle at 0 0, rgba(56,189,248,0.08), transparent 55%),
+    color-mix(in srgb, var(--bg) 96%, #ffffff 10%);
+  box-shadow:
+    0 10px 30px rgba(15, 23, 42, 0.06),
+    0 1px 2px rgba(15, 23, 42, 0.04);
+  border-color: rgba(148, 163, 184, 0.35);
+}
+
+body.theme-light .panel::before {
+  opacity: 0.16;
+}
+
+/* Cards in light mode */
+body.theme-light .project-card,
+body.theme-light .contact-card,
+body.theme-light .systems-column,
+body.theme-light .infographic-card {
+  background: #ffffff;
+  box-shadow:
+    0 8px 24px rgba(15, 23, 42, 0.04),
+    0 1px 2px rgba(15, 23, 42, 0.04);
+  border-color: rgba(148, 163, 184, 0.38);
+}
+
+/* Buttons in light mode */
+body.theme-light .btn {
+  box-shadow:
+    0 10px 25px rgba(56, 189, 248, 0.3),
+    0 0 0 1px rgba(56, 189, 248, 0.45);
+}
+
+body.theme-light .btn-ghost {
+  background: #ffffff;
+  border-color: rgba(148, 163, 184, 0.6);
+}
+
+body.theme-light .btn-ghost:hover {
+  background: #f9fafb;
+  border-color: rgba(56, 189, 248, 0.7);
+}
+
+/* Bars in light mode */
+body.theme-light .diag-bar {
+  background: rgba(15, 23, 42, 0.06);
+}
+
+body.theme-light .focus-bar {
+  background: rgba(15, 23, 42, 0.06);
+  border-color: rgba(148, 163, 184, 0.45);
 }
 
 /* mobile */
