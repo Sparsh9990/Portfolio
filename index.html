@@ -157,22 +157,25 @@
                 </div>
               </div>
 
-              <!-- row 2: mini career timeline -->
+              <!-- row 2: UPDATED mini career timeline with equidistant dots -->
               <div class="infographic-row">
                 <div class="mini-timeline">
                   <div class="mini-timeline-label">Career track</div>
                   <div class="mini-timeline-axis">
-                    <div class="mt-dot mt-dot-start">
-                      <span class="mt-year">2023</span>
-                      <span class="mt-tag">Student · AI</span>
-                    </div>
-                    <div class="mt-dot mt-dot-mid">
-                      <span class="mt-year">2024</span>
-                      <span class="mt-tag">Data projects</span>
-                    </div>
-                    <div class="mt-dot mt-dot-end">
-                      <span class="mt-year">2025</span>
-                      <span class="mt-tag">Biz systems</span>
+                    <div class="mt-track"></div>
+                    <div class="mt-dots">
+                      <span class="mt-dot">
+                        <span class="mt-year">2023</span>
+                        <span class="mt-tag">Student · AI</span>
+                      </span>
+                      <span class="mt-dot">
+                        <span class="mt-year">2024</span>
+                        <span class="mt-tag">Data projects</span>
+                      </span>
+                      <span class="mt-dot">
+                        <span class="mt-year">2025</span>
+                        <span class="mt-tag">Biz systems</span>
+                      </span>
                     </div>
                   </div>
                 </div>
@@ -546,56 +549,51 @@
             </p>
           </div>
 
-          <div class="contact-card">
-            <div class="contact-row">
-              <span class="contact-k">Email</span>
-              <a
-                class="contact-v contact-email"
-                href="mailto:Sparshsharma9990@gmail.com"
-              >
-                Sparshsharma9990@gmail.com
-              </a>
-            </div>
-
-            <div class="contact-row">
-              <span class="contact-k">LinkedIn</span>
-              <a
-                class="contact-v contact-linkedin"
-                href="https://www.linkedin.com/in/sparsh-sharma-320431187/"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Sparsh-Sharma
-              </a>
-            </div>
-
-            <div class="contact-row">
-              <span class="contact-k">GitHub</span>
-              <a
-                class="contact-v contact-github"
-                href="https://github.com/Sparsh9990"
-                target="_blank"
-                rel="noreferrer"
-              >
-                Sparsh9990
-              </a>
-            </div>
-
-            <div class="contact-row contact-cta-row">
-              <button
-                type="button"
-                class="btn btn-accent contact-primary btn-small"
-                id="contact-email-cta"
-              >
-                Send intro
-              </button>
-            </div>
+          <div class="contact-gif-wrap">
+          <img src="contact gif.gif" alt="Animated system signal" class="contact-gif" />
           </div>
-        </div>
+          </div>
       </section>
     </main>
 
-    <footer>© 2025 Sparsh</footer>
+    <!-- UPDATED FOOTER WITH ICON ROW + TEXT -->
+    <footer>
+      <div class="site-footer">
+        <div class="footer-icons" aria-label="Contact links">
+          <!-- Gmail app icon -->
+          <a
+            href="mailto:Sparshsharma9990@gmail.com"
+            class="footer-icon footer-icon-email"
+            aria-label="Email Sparsh"
+          >
+            <img src="gmail.svg" alt="" class="footer-img" />
+          </a>
+
+          <!-- LinkedIn app icon -->
+          <a
+            href="https://www.linkedin.com/in/sparsh-sharma-320431187/"
+            target="_blank"
+            rel="noreferrer"
+            class="footer-icon footer-icon-linkedin"
+            aria-label="LinkedIn profile"
+          >
+            <img src="linkedin.svg" alt="" class="footer-img" />
+          </a>
+
+          <!-- GitHub logo -->
+          <a
+            href="https://github.com/Sparsh9990"
+            target="_blank"
+            rel="noreferrer"
+            class="footer-icon footer-icon-github"
+            aria-label="GitHub profile"
+          >
+            <img src="github.svg" alt="" class="footer-img" />
+          </a>
+        </div>
+      </div>
+      © 2025 Sparsh Sharma. All rights reserved.
+    </footer>
   </div>
 
   <!-- PROJECT DETAIL MODAL -->

@@ -215,11 +215,3 @@ if (scrollDiagnosticsBtn) {
     diag.scrollIntoView({ behavior: "smooth", block: "start" });
   });
 }
-
-/* CONTACT "Send intro" button */
-const contactEmailCta = document.getElementById("contact-email-cta");
-if (contactEmailCta) {
-  contactEmailCta.addEventListener("click", () => {
-    window.location.href = "mailto:Sparshsharma9990@gmail.com";
-  });
-}
