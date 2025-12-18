@@ -3,10 +3,10 @@ html { scroll-behavior: smooth; }
 
 /* LIGHT THEME (default) */
 :root {
-  --bg: #f3f4f6;
+  --bg: #edf7ff;        /* light cyan / frosted glass vibe */
   --text: #020617;
-  --muted: #6b7280;
-  --border: rgba(15, 23, 42, 0.08);
+  --muted: #64748b;
+  --border: rgba(15, 23, 42, 0.10);
   --accent: #0ea5e9;
   --blue: #0284c7;
   --red: #ef4444;
@@ -220,7 +220,7 @@ body {
   border-bottom: 1px solid var(--border);
 }
 
-/* LOGO console chip + 2-line status + press microinteraction */
+/* LOGO console chip */
 
 .logo {
   position: relative;
@@ -259,7 +259,6 @@ body {
   opacity: 0.9;
 }
 
-/* green status dot AFTER text */
 .logo-sub::after {
   content: "";
   width: 7px;
@@ -271,7 +270,6 @@ body {
     0 0 10px rgba(34, 197, 94, 0.7);
 }
 
-/* idle shine */
 .logo::before {
   content: "";
   position: absolute;
@@ -288,7 +286,6 @@ body {
   pointer-events: none;
 }
 
-/* click press + glow sweep */
 .logo::after {
   content: "";
   position: absolute;
@@ -373,7 +370,6 @@ section {
   border-radius: 12px;
 }
 
-/* prevent sticky header from covering section titles */
 #data-projects,
 #skill-diagnostics,
 #contact {
@@ -528,6 +524,7 @@ h1 {
 }
 
 .project-card {
+  position: relative;
   border-radius: 14px;
   padding: 16px 18px;
   border: 1px solid rgba(148, 163, 184, 0.35);
@@ -734,6 +731,7 @@ h2 {
 }
 
 .systems-column {
+  position: relative;
   border-radius: 10px;
   padding: 10px 12px;
   border: 1px dashed rgba(148, 163, 184, 0.7);
@@ -861,8 +859,6 @@ h2 {
   color: var(--accent);
 }
 
-/* generic rows */
-
 .infographic-row {
   display: block;
 }
@@ -918,7 +914,6 @@ h2 {
   background: color-mix(in srgb, var(--bg) 90%, transparent);
 }
 
-/* base line */
 .mini-timeline-axis::before {
   content: "";
   position: absolute;
@@ -930,8 +925,6 @@ h2 {
   background: linear-gradient(90deg, #0ea5e9, #38bdf8);
   opacity: 0.7;
 }
-
-/* dots */
 
 .mt-dot {
   position: relative;
@@ -953,7 +946,6 @@ h2 {
   margin-bottom: 4px;
 }
 
-/* positions */
 .mt-dot-start { margin-left: 4px; margin-right: 14px; }
 .mt-dot-mid   { margin: 0 14px; }
 .mt-dot-end   { margin-left: 14px; }
@@ -1071,6 +1063,7 @@ h2 {
 }
 
 .contact-card {
+  position: relative;
   border-radius: 10px;
   padding: 10px 12px;
   border: 1px solid rgba(148, 163, 184, 0.5);
@@ -1099,7 +1092,6 @@ h2 {
   word-break: break-all;
 }
 
-/* email + linkedin + github blue */
 .contact-email,
 .contact-linkedin,
 .contact-github {
@@ -1115,7 +1107,6 @@ h2 {
   text-align: center;
 }
 
-/* smaller Send intro button */
 .contact-primary.btn-small {
   font-size: 11px;
   padding: 6px 14px;
@@ -1132,53 +1123,92 @@ footer {
   border-top: 1px solid var(--border);
 }
 
-/* LIGHT MODE TUNING
+/* LIGHT MODE JARVIS TUNING
    -------------------------------------------------- */
 
-/* Sticky header in light mode */
-body.theme-light .header {
-  background: rgba(248, 250, 252, 0.96);
-  box-shadow: 0 1px 0 rgba(148, 163, 184, 0.35);
-  backdrop-filter: blur(10px);
-}
-
-/* Hero in light mode */
-body.theme-light .hero {
-  background: radial-gradient(circle at 0 0, rgba(56,189,248,0.10), #f9fafb);
-  border-color: rgba(148, 163, 184, 0.25);
-}
-
-/* Panels in light mode */
-body.theme-light .panel {
+/* Light, Jarvis-like page background */
+body.theme-light {
   background:
-    radial-gradient(circle at 0 0, rgba(56,189,248,0.08), transparent 55%),
-    color-mix(in srgb, var(--bg) 96%, #ffffff 10%);
-  box-shadow:
-    0 10px 30px rgba(15, 23, 42, 0.06),
-    0 1px 2px rgba(15, 23, 42, 0.04);
+    radial-gradient(circle at 0% 0%, rgba(56,189,248,0.18), transparent 55%),
+    radial-gradient(circle at 100% 100%, rgba(148,163,184,0.12), transparent 55%),
+    var(--bg);
+}
+
+/* Hero HUD panel on light */
+body.theme-light .hero {
+  background:
+    radial-gradient(circle at 0 0, rgba(56,189,248,0.24), transparent 62%),
+    linear-gradient(to bottom right, #e4f3ff, #f6fbff);
   border-color: rgba(148, 163, 184, 0.35);
 }
 
-body.theme-light .panel::before {
-  opacity: 0.16;
-}
-
-/* Cards in light mode */
+/* Stronger Jarvis cards on light background */
+body.theme-light .panel,
 body.theme-light .project-card,
-body.theme-light .contact-card,
+body.theme-light .infographic-card,
 body.theme-light .systems-column,
-body.theme-light .infographic-card {
-  background: #ffffff;
+body.theme-light .contact-card {
+  background:
+    radial-gradient(circle at 0 0, rgba(56,189,248,0.16), transparent 60%),
+    linear-gradient(145deg, #e3f3ff, #f5fbff);
+  border-color: rgba(56, 189, 248, 0.55);
   box-shadow:
-    0 8px 24px rgba(15, 23, 42, 0.04),
-    0 1px 2px rgba(15, 23, 42, 0.04);
-  border-color: rgba(148, 163, 184, 0.38);
+    0 18px 40px rgba(15, 23, 42, 0.08),
+    0 0 0 1px rgba(148, 163, 184, 0.35);
 }
 
-/* Buttons in light mode */
+/* Inner HUD frame */
+body.theme-light .project-card::before,
+body.theme-light .infographic-card::before,
+body.theme-light .systems-column::before,
+body.theme-light .contact-card::before {
+  content: "";
+  position: absolute;
+  inset: 8px;
+  border-radius: inherit;
+  border: 1px solid rgba(56, 189, 248, 0.28);
+  pointer-events: none;
+}
+
+/* Subtle vertical scan lines inside cards */
+body.theme-light .panel::after,
+body.theme-light .project-card::after,
+body.theme-light .infographic-card::after,
+body.theme-light .systems-column::after,
+body.theme-light .contact-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+    to bottom,
+    rgba(148,163,184,0.08) 1px,
+    transparent 12px
+  );
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Chips & pills slightly deeper */
+body.theme-light .pill,
+body.theme-light .chip {
+  background: rgba(56, 189, 248, 0.18);
+  border-color: rgba(56, 189, 248, 0.55);
+}
+
+/* Bars in light mode remain subtle */
+body.theme-light .diag-bar {
+  background: rgba(148, 163, 184, 0.25);
+}
+
+body.theme-light .focus-bar {
+  background: rgba(148, 163, 184, 0.25);
+  border-color: rgba(148, 163, 184, 0.55);
+}
+
+/* Buttons on light background */
 body.theme-light .btn {
   box-shadow:
-    0 10px 25px rgba(56, 189, 248, 0.3),
+    0 10px 25px rgba(56, 189, 248, 0.35),
     0 0 0 1px rgba(56, 189, 248, 0.45);
 }
 
@@ -1190,16 +1220,6 @@ body.theme-light .btn-ghost {
 body.theme-light .btn-ghost:hover {
   background: #f9fafb;
   border-color: rgba(56, 189, 248, 0.7);
-}
-
-/* Bars in light mode */
-body.theme-light .diag-bar {
-  background: rgba(15, 23, 42, 0.06);
-}
-
-body.theme-light .focus-bar {
-  background: rgba(15, 23, 42, 0.06);
-  border-color: rgba(148, 163, 184, 0.45);
 }
 
 /* mobile */
